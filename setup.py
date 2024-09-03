@@ -79,29 +79,30 @@ extensions = [
     ),
 ]
 
+# Build without CPP extensions
+# extensions.extend(
+#     [
+#         cpp_extension.CppExtension(
+#             "fairseq.libbase",
+#             sources=[
+#                 "fairseq/clib/libbase/balanced_assignment.cpp",
+#             ],
+#         ),
+#         cpp_extension.CppExtension(
+#             "fairseq.libnat",
+#             sources=[
+#                 "fairseq/clib/libnat/edit_dist.cpp",
+#             ],
+#         ),
+#         cpp_extension.CppExtension(
+#             "alignment_train_cpu_binding",
+#             sources=[
+#                 "examples/operators/alignment_train_cpu.cpp",
+#             ],
+#         ),
+#     ]
+# )
 
-extensions.extend(
-    [
-        cpp_extension.CppExtension(
-            "fairseq.libbase",
-            sources=[
-                "fairseq/clib/libbase/balanced_assignment.cpp",
-            ],
-        ),
-        cpp_extension.CppExtension(
-            "fairseq.libnat",
-            sources=[
-                "fairseq/clib/libnat/edit_dist.cpp",
-            ],
-        ),
-        cpp_extension.CppExtension(
-            "alignment_train_cpu_binding",
-            sources=[
-                "examples/operators/alignment_train_cpu.cpp",
-            ],
-        ),
-    ]
-)
 if "CUDA_HOME" in os.environ:
     extensions.extend(
         [
